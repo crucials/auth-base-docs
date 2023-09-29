@@ -1,16 +1,5 @@
 <template>
-    <Layout>
-        <template #home-hero-image>
-            <Transition name="growing" appear>
-                <img :src="frontmatter.hero.image.dark" :alt="frontmatter.hero.image.alt"
-                    v-if="pageData.isDark.value"
-                    class="VPImage dark image-src">
-
-                <img :src="frontmatter.hero.image.light" :alt="frontmatter.hero.image.alt" v-else
-                    class="VPImage light image-src">
-            </Transition>
-        </template>
-    </Layout>
+    <Layout/>
 </template>
 
 <script setup lang="ts">
@@ -20,10 +9,7 @@ import { provide, nextTick } from 'vue'
 
 const { Layout } = DefaultTheme
 
-const pageData = useData()
-const frontmatter = pageData.frontmatter
-
-const { isDark } = pageData
+const { isDark } = useData()
 
 /*
     i havent learnt view transitions api so idk how is that code working
